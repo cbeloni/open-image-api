@@ -1,0 +1,50 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Open Image API",
+    "description": "OpenCV API"
+  },
+  "paths": {
+    "/diff": {
+      "post": {
+        "description": "Working with images using OpenCV",
+        "tags": [
+          "image collection"
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "file": {
+                    "type": "string",
+                    "format": "binary"
+                  },
+                  "filediff": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "returns the percentage of the difference between two images",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "number",
+                  "example": 0.3
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
